@@ -18,15 +18,18 @@ void printReading(SensorData *data) {
     Serial.println("Invalid reading");
     return;
   }
-  char buf[64];
-  sniprintf(buf, sizeof(buf), "Temp: %.1fC, Humidity: %.1f%%", data->temperature, data->humidity);
-  Serial.println(buf);
+  Serial.print("Temp: ");
+  Serial.print(data->temperature);
+  Serial.print("C, Humidity: ");
+  Serial.print(data->humidity);
+  Serial.println("%");
 }
 
 
 void setup() {
   Serial.begin(115200);
   dht.begin();
+  delay(2000);
   Serial.println("Sensor logger started");
 }
 
