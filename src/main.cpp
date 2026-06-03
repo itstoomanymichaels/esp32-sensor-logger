@@ -3,6 +3,8 @@
 
 #define DHT_PIN 4
 #define DHT_TYPE DHT22
+#define LED_PIN 2
+#define TEMP_THRESHOLD_C 25.0f
 
 DHT dht(DHT_PIN, DHT_TYPE);
 
@@ -32,7 +34,8 @@ void printReading(SensorData *data) {
 void setup() {
   Serial.begin(115200);
   dht.begin();
-  delay(2000);
+  pinMode(LED_PIN, OUTPUT);
+  delay(3000);
   Serial.println("Sensor logger started");
 }
 
@@ -43,6 +46,11 @@ void loop() {
   reading.is_valid = !isnan(reading.temperature) && !isnan(reading.humidity);
 
   printReading(&reading);
+  if (reading.is_valid && reading.temperature > TEMP_THRESHOLD_C) {
+    digitalWrite(LED_PIN, HIGH);
+  } else {
+    digitalWrite(LED_PIN, LOW);
+  }
   delay(5000);
 }
 
