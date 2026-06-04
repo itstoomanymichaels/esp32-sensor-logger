@@ -30,17 +30,17 @@ the user by driving an LED on GPIO2.
 - Libraries: Adafruit DHT Sensor Library Vers. 1.4.7
 
 ## How to Build and Flash
-1. Clone the repo
+1. Clone the repo  
    git clone https://github.com/itstoomanymichaels/esp32-sensor-logger.git
 
 2. Open the project folder in PlatformIO
 
-3. Build and upload
-   To build, click the check icon at the bottom of PlatformIO.
+3. Build and upload  
+   To build, click the check icon at the bottom of PlatformIO.  
    To upload, click the right arrow icon to the immediate right of the build icon.
 
-4. Open serial monitor at 115200 baud to view output
-   Click the plug icon at the bottom of PlatformIO.
+4. Open serial monitor at 115200 baud to view output  
+   Click the plug icon at the bottom of PlatformIO.  
    Baud rate is set to 115200.
 
 ## Demo
