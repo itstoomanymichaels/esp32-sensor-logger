@@ -44,4 +44,4 @@ the user by driving an LED on GPIO2.
    Baud rate is set to 115200.
 
 ## Demo
-(Video coming soon)
+[Watch the demo on YouTube](https://youtu.be/5R83eLjjO_A)
