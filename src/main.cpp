@@ -20,14 +20,10 @@ void printReading(SensorData *data) {
     Serial.println("Invalid reading");
     return;
   }
-  // snprintf with %f doesn't work on ESP32 without
-  // compiler flags I believe. Using Serial.print() for floats for now.
-  // Fix in platformio.ini: build_flags = -u _printf_float
-  Serial.print("Temp: ");
-  Serial.print(data->temperature);
-  Serial.print("C, Humidity: ");
-  Serial.print(data->humidity);
-  Serial.println("%");
+  // build_flags = -Wl,-u,_printf_float in platformio.ini enables %f in snprintf
+  char buff[64] = {0};
+  snprintf(buff, sizeof(buff), "Temp: %.1f, Humidity: %.1f%%", data->temperature, data->humidity);
+  Serial.println(buff);
 }
 
 
